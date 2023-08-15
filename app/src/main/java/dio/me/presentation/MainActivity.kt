@@ -48,11 +48,11 @@ fun MainApp(response: Response? = null) =
             topBar = { AppTopBar() },
             content = { innerPadding ->
                 ConstraintLayout(modifier = Modifier.padding(innerPadding)) {
-                    val(header, balanceCard, spacer, menuItems, creditCard, news) = createRefs()
+                    val(header, spacer, balanceCard,  menuItems, creditCard, news) = createRefs()
                 Header(
 
                     modifier = Modifier.constrainAs(header){
-                                                           centerHorizontallyTo(parent)
+                       centerHorizontallyTo(parent)
                     },
                     name = response?.name ?: "",
                     agency = response?.account?.agency ?: "",
@@ -90,17 +90,6 @@ fun MainApp(response: Response? = null) =
                         features = response?.features ?: emptyList()
                     )
 
-                    CreditCard(
-                       modifier = Modifier
-                           .padding(
-                               horizontal = Spacing_2
-                           )
-                           .constrainAs(creditCard) {
-                               top.linkTo(menuItems.bottom)
-                           },
-                        number = response?.card?.number ?: "",
-
-                    )
 
                     NewsPagerApp(
                         news = response?.news ?: emptyList(),
@@ -110,9 +99,12 @@ fun MainApp(response: Response? = null) =
                                 vertical = Spacing_2
                             )
                             .constrainAs(news) {
-                                top.linkTo(creditCard.bottom)
+                                top.linkTo(menuItems.bottom)
                             }
                     )
+
+
+
 
                 }
             }

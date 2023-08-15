@@ -1,6 +1,5 @@
 package dio.me.presentation.components
 
-import androidx.compose.foundation.indication
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CurrencyExchange
@@ -87,8 +86,8 @@ Row(modifier = Modifier.fillMaxWidth(0.8f)) {
              modifier = modifier.align(
                  Alignment.CenterHorizontally
              ),
-
-             onClick = { /*TODO*/ }) {
+             onClick = { /*TODO*/ }
+         ) {
              Text(text = "Ver Extrato")
          }
      }
